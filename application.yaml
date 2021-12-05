@@ -9,7 +9,7 @@ spec:
   source: 
     repoURL: https://github.com/simcax/deploy-skov.codes.git
     targetRevision: HEAD
-    path: skov-run
+    path: skov-codes
   destination:
     server: https://kubernetes.default.svc
     namespace: skov-codes-prod
