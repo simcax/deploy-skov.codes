@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: skov-codes
   namespace: cd-skov-run
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: ghost/ghost:4.x.x
 spec:
   project: default
 
