@@ -41,17 +41,14 @@ spec:
             - name: http
               containerPort: 2368
               protocol: TCP
-          volumeMounts:
-            - name: content-code
-              mountPath: {{ .Values.content.PersistentVolume.volumeMountPath }}
-          #livenessProbe:
-          #  httpGet:
-          #    path: /
-          #    port: http
-          #readinessProbe:
-          #  httpGet:
-          #    path: /
-          #    port: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
@@ -66,7 +63,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      volumes:
-        - name: content-code 
-          persistentVolumeClaim:
-            claimName: {{ .Values.content.PersistentVolume.persistentVolumeClaim.Name }}
