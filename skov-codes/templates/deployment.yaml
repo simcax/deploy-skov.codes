@@ -34,12 +34,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-          - name: url
-            value: http://www.skov.codes
           ports:
             - name: http
-              containerPort: 2368
+              containerPort: 80
               protocol: TCP
           #livenessProbe:
           #  httpGet:
