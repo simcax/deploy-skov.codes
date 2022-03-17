@@ -49,7 +49,7 @@ spec:
           #  httpGet:
           #    path: /
           #    port: http
-          #resources:
+          resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
